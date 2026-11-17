@@ -1,0 +1,25 @@
+{
+  "name": "BH1750",
+  "author": "IoT Solution Development Team",
+  "pins": [
+    "SCL",
+    "SDA",
+    "GND",
+    "VCC",
+    "ADDR",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "controls": [
+    {
+      "id": "LightLevel",
+      "label": "Light Intensity",
+      "type": "range",
+      "min": 0,
+      "max": 10000,
+      "step": 1
+    }
+  ]
+}

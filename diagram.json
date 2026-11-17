@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "author": "IoT Solution Development Team",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 4.8, "left": -10.1, "attrs": {} },
+    { "type": "chip-bh1750", "id": "light-sensor", "top": -27.78, "left": 273.6, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "security-led",
+      "top": 130.8,
+      "left": 215.4,
+      "attrs": { "color": "red", "flip": "1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resistor",
+      "top": 186.35,
+      "left": 124.8,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "motion-sensor",
+      "top": 52,
+      "left": 299.82,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "light-sensor:SDA", "esp:D21", "purple", [ "h-134.4", "v77.3" ] ],
+    [ "light-sensor:SCL", "esp:D22", "green", [ "h-19.2", "v-19.2", "h-134.4", "v77.2" ] ],
+    [ "security-led:A", "resistor:2", "red", [ "v0" ] ],
+    [ "resistor:1", "esp:D5", "red", [ "v0" ] ],
+    [ "security-led:C", "esp:GND.1", "black", [ "v38.4", "h-125.2", "v-57.6", "h-24" ] ],
+    [ "motion-sensor:OUT", "esp:D4", "orange", [ "v19.2", "h-76.94", "v-38.4", "h-115.2" ] ],
+    [ "motion-sensor:VCC", "esp:3V3", "red", [ "v96", "h-182.4", "v0", "h-48", "v-76.8" ] ],
+    [ "motion-sensor:GND", "esp:GND.1", "black", [ "v76.8", "h-144.26", "h-96", "v-67" ] ],
+    [ "light-sensor:GND", "esp:GND.1", "black", [ "h-105.6", "v153.6", "h-55.79", "v0.2" ] ],
+    [ "light-sensor:VCC", "esp:3V3", "red", [ "h-86.4", "v153.6", "h-84.59", "v0.1" ] ],
+    [ "light-sensor:ADDR", "esp:GND.2", "blue",[ "h-28.8", "v-76.8", "h-276.59", "v172.8", "h127.49" ]],
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ]
+  ],
+  "dependencies": {}
+}
